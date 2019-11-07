@@ -61,6 +61,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/07/test/" class="article-date">
+  <time datetime="2019-11-07T02:02:37.000Z" itemprop="datePublished">2019-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/07/test/">test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="STM32Cube-Mx蓝牙功能的相关配置"><a href="#STM32Cube-Mx蓝牙功能的相关配置" class="headerlink" title="STM32Cube Mx蓝牙功能的相关配置"></a>STM32Cube Mx蓝牙功能的相关配置</h1><h2 id="一-打开软件"><a href="#一-打开软件" class="headerlink" title="一.打开软件"></a>一.打开软件</h2><p> 点击工具栏中的help，选中Manage embedded software packages,下载STM32F4的1.24.1版本的固件包。然后选中STMicroelectronics,下载X_CUBE_BLE1的4.4.0版本的固件包和X_CUBE_MEMS1的6.2.0固件包。</p>
+<h2 id="二-点击New-projiet-进入芯片选择页面"><a href="#二-点击New-projiet-进入芯片选择页面" class="headerlink" title="二.点击New projiet 进入芯片选择页面"></a>二.点击New projiet 进入芯片选择页面</h2><p> 我这里选择的是STM32F401RETx(因为我的芯片就是这个型号，大家可以根据自己芯片的型号进行选择)</p>
+<h2 id="三-选择芯片后进入工程配置"><a href="#三-选择芯片后进入工程配置" class="headerlink" title="三.选择芯片后进入工程配置"></a>三.选择芯片后进入工程配置</h2><ul>
+<li><p>1.在Additional Software中的STMicorelectronics.X_CUBE_BLE1分别展开隐藏的文件，Application中选择Beacon,HCI_TL选择Basic,HCI_TL_INTERFACE选择UserBoard。<br><img src="/2019/11/07/test/1.jpg" alt="avatar"></p>
+</li>
+<li><p>2.在System Core中配置SWD调试模式。选中SYS,Debug中选择Serial Wire。<br><img src="/2019/11/07/test/2.jpg" alt="avatar"></p>
+</li>
+<li><p>3.在Connectivity中配置全双工模式和串口的异步模式。在SPI1的Mode中选择Full_Duplex Master(全双工模式)，在下面的Parameter Settings配置时钟参数，在Clock Parameters中配置 Prescaler（预分频器）为4；选择USART1,Mode中选择Asynchronous(异步模式)<br><img src="/2019/11/07/test/3.jpg" alt="avatar"></p>
+</li>
+</ul>
+<p><img src="/2019/11/07/test/4.jpg" alt="avatar"></p>
+<ul>
+<li><p>4.点击Additional Software 下方的X_CUBE_BLE1.4.4.0, 然后把Wireless BlueNRG_MS和 Wireless Application都勾选上。然后在Platform Settings下方进行相关配置，根据原理图把 PC4设置为外部中断引脚，所以Exti Line中选择PC4；当初是在SPI1中设置的全双工模式，所以BUS IO driver中选择的是SPI1;设置PA4和PB1为GPIO_Output,所以CS Line 中选择PA4,Reset Linez 中选择PB1，在BSP USART中选择USART1。<br><img src="/2019/11/07/test/5.jpg" alt="avatar"></p>
+</li>
+<li><p>5.选择芯片上方的System view,然后选中GPIO,在左侧的方格中选择NVIC把EXTI line4 interrruput 勾选上。<br><img src="/2019/11/07/test/6.jpg" alt="avatar"></p>
+</li>
+</ul>
+<h2 id="四-点击菜单栏中的Project-Manager进入工程配置"><a href="#四-点击菜单栏中的Project-Manager进入工程配置" class="headerlink" title="四.点击菜单栏中的Project Manager进入工程配置"></a>四.点击菜单栏中的Project Manager进入工程配置</h2><p> 命名好工程名称和选择好工程存储路径就可以点击GENERATE CODE生成工程了。（这里强调一下工程名和 工程存储路径中最好都是英文不要存在中文，不然容易出错）进入工程后可以先运行下看看是否是零个错误零个警告，如果是的说明工程建立成功。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/07/test/" data-id="ck2o7ufy60000r0vicdbw3q4b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-wmx" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/06/wmx/" class="article-date">
@@ -160,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/06/wmx/" data-id="ck2ne6b1p0002rovi70410kue" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/06/wmx/" data-id="ck2o78i3n00020wvi9g8l3fss" class="article-share-link">Share</a>
       
       
     </footer>
@@ -197,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/17/helloccit/" data-id="ck2ne6b1n0001rovigjbk2829" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/17/helloccit/" data-id="ck2o78i3k00010wvifkigf7dk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/17/hello-world/" data-id="ck2ne6b1h0000rovi11fx5jmn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/17/hello-world/" data-id="ck2o78i3900000wvif6uw7hfw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,6 +339,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/07/test/">test</a>
+          </li>
         
           <li>
             <a href="/2019/11/06/wmx/">wmx</a>
